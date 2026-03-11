@@ -11,13 +11,13 @@ function App() {
   const [playing, setPlaying] = useState<any>(null)
   const [scenario, setScenario] = useState(null)
   const [completed, setCompleted] = useState(false)
-  const [answers, setAnswers] = useState([])
+  const [scene, setScene] = useState(``)
 
   function resetGame(): void {
     setPlaying(null)
     setScenario(null)
     setCompleted(false)
-    setAnswers([])
+    setScene(``)
   }
 
   return (<>
@@ -35,22 +35,16 @@ function App() {
       setScenario={setScenario}>
 
       {/* The displayed Scenario is determined by the choice made within MyProviders. */}
-      {scenario == 1 ? <ScenarioOne /> :
-        scenario == 2 ? <ScenarioTwo /> :
+      {scenario == 1 && scene == `` ? <ScenarioOne
+        completed={completed}
+        setCompleted={setCompleted}
+        setScene={setScene}
+      /> :
+        scenario == 2 && scene == ``? <ScenarioTwo /> :
           <div>Please choose a scenario</div>}
 
-      {/* Only show once a scenerio has been chosen */}
-      {scenario !== null ?
-        <AnswerForm
-          completed={completed}
-          setCompleted={setCompleted}
-          answers={answers}
-          setAnswers={setAnswers} />
-        : <div>The form will appear here...</div>
-      }
-
       {/* Only show once the game is marked completed. */}
-      {completed ? <Result answers={answers} /> : <div>No Result yet.</div>}
+      {completed ? <Result scene={scene} /> : <div>No Result yet.</div>}
     </MyProviders>
 
     {/* Reset the game after finishing. */}
