@@ -1,9 +1,7 @@
 import ScenarioOne from './components/ScenarioOne'
 import './App.css'
-import AnswerForm from './components/AnswerForm'
 import { useState } from 'react'
 import MyProviders from './MyProviders'
-import ScenarioTwo from './components/ScenarioTwo'
 import Result from './components/Result'
 
 function App() {
@@ -21,12 +19,6 @@ function App() {
   }
 
   return (<>
-    <div>Playing: {
-      playing == true ? 'TRUE' :
-        playing == false ? 'FALSE' :
-          'Game not started.'
-    }</div>
-
     {/* The context is able to be set through setPlaying. */}
     <MyProviders
       playing={playing}
@@ -40,8 +32,7 @@ function App() {
         setCompleted={setCompleted}
         setScene={setScene}
       /> :
-        scenario == 2 && scene == ``? <ScenarioTwo /> :
-          <div>Please choose a scenario</div>}
+        <div>Please choose a scenario</div>}
 
       {/* Only show once the game is marked completed. */}
       {completed ? <Result scene={scene} /> : <div>No Result yet.</div>}

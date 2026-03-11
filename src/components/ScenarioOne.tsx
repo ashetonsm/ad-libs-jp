@@ -1,6 +1,6 @@
 import FreeInput from "./FreeInput"
 
-function ScenarioOne({ completed, setCompleted, setAnswers, setScene }: any) {
+function ScenarioOne({ setCompleted, setScene }: any) {
 
   function submitForm(formData: FormData) {
     const query = formData.getAll('question')
@@ -35,8 +35,6 @@ function ScenarioOne({ completed, setCompleted, setAnswers, setScene }: any) {
         </p>
     `
     setScene(sceneText)
-
-    alert(`You searched for '${query}'`);
   }
 
 

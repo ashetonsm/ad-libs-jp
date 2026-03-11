@@ -1,4 +1,3 @@
-import { Children } from "react"
 
 function Game({children} : any) {
 

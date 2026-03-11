@@ -1,7 +1,6 @@
-function AnswerForm({completed, setCompleted, setAnswers} : any) {
+function AnswerForm({setCompleted, setAnswers} : any) {
 
     // 0 = dropdown, 1 = free entry
-    const mode = 0
 
     function submitForm(formData: FormData) {
         const query = formData.getAll('question')

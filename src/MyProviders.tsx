@@ -26,8 +26,8 @@ function MyProviders({ children,
             {scenario == null ?
                 <div>
                     <h1>Choose a Scenario:</h1>
-                    <button onClick={() => handleScenario(1)}>One</button>
-                    <button onClick={() => handleScenario(2)}>Two</button>
+                    <button onClick={() => handleScenario(1)}>1) The Town Legend</button>
+                    {/* <button onClick={() => handleScenario(2)}>Two</button> */}
                 </div>
 
                 : <div>Scenario chosen.</div>
